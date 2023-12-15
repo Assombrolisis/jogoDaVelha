@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Game from "./components/game/Game"
-import Home from "./components/Home/Home"
+import Game from "./pages/game/Game"
+import Home from "./pages/Home/Home"
 
 
 function AppRoutes(){
