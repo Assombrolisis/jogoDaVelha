@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Home.css'
 
 function Home(){
+    const navegate = useNavigate()
     localStorage.setItem("x",0)
     localStorage.setItem("o",0)
 
@@ -9,7 +10,7 @@ function Home(){
         <>
         <body id='bodyHome'>
             <h1>Jogo da velha</h1>
-            <Link to="/game">jogar</Link>
+            <button onClick={()=>{navegate('/game')}}>jogar</button>
         </body>
         </>
     )

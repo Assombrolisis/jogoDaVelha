@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import './Game.css'
 
 function Game() {
+  const navegate  = useNavigate()
   const pontosPlayer1 = parseInt(localStorage.getItem("x"))
   const pontosPlayer2 = parseInt(localStorage.getItem("o"))
   
@@ -72,7 +73,7 @@ useEffect(()=>{
         <h1>Jogador x : {pontosPlayer1} pts</h1>
       </div>
       <div className='containerGame'>
-      <Link to="/" id='Voltar'>voltar</Link>
+      <button onClick={()=>{navegate('/')}}>voltar</button>
 
         {resultado?
         <h1>{resultado}</h1>:
