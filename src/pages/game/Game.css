@@ -11,7 +11,11 @@
     align-items: center;
     justify-content: center;
   }
+  .containerReset button{
+    margin: 5px;
+  }
   .game{
+    margin: 10px;
     display: grid;
     grid-template-columns: auto auto auto;
   
@@ -27,3 +31,7 @@
     font-size: 20px;
   }
   
+#voltar{
+  font-size: 20px;
+  color: black ;
+}

@@ -32,7 +32,7 @@ function Game() {
 
   const ganhou =(valor)=>{
     setVitoria(true)
-    setResultado(`ganhou ${valor}`)
+    setResultado(`Jogador ${valor} ganhou`)
     let pontosAtuais = parseInt(localStorage.getItem(valor))
     localStorage.setItem(valor,pontosAtuais+1)
 
@@ -54,20 +54,29 @@ useEffect(()=>{
 
   valorCel1 !="" && valorCel2 !="" && valorCel3 !="" &&
   valorCel4 !="" && valorCel5 !="" && valorCel6 !="" && 
-  valorCel7 !="" && valorCel8 !="" && valorCel9 !="" ? setResultado("empate"):{}
+  valorCel7 !="" && valorCel8 !="" && valorCel9 !="" ? setResultado("Empate"):{}
 },[valorCel1, valorCel2, valorCel3, valorCel4, valorCel5, valorCel6, valorCel7, valorCel8, valorCel9])
 
-
+  const zerarPlacar = ()=>{
+    localStorage.setItem("x",0)
+    localStorage.setItem("o",0)
+    window.location.reload()
+  }
 
 
   return (
     <> 
     <body id='bodyGame'>
-      <div>player 1: {pontosPlayer1}</div>
+      
+      <div>
+        <h1>Jogador x : {pontosPlayer1} pts</h1>
+      </div>
       <div className='containerGame'>
+      <Link to="/" id='Voltar'>voltar</Link>
+
         {resultado?
         <h1>{resultado}</h1>:
-        <h1>vez de: {player}</h1>}
+        <h1>Vez do jogador {player}</h1>}
         <div className='game'>
           <button onClick={(e)=>{click(setValorCel1,valorCel1)}}>{valorCel1}</button>
           <button onClick={(e)=>{click(setValorCel2,valorCel2)}}>{valorCel2}</button>
@@ -79,10 +88,14 @@ useEffect(()=>{
           <button onClick={(e)=>{click(setValorCel8,valorCel8)}}>{valorCel8}</button>
           <button onClick={(e)=>{click(setValorCel9,valorCel9)}}>{valorCel9}</button>
         </div> 
-        <button onClick={()=>{window.location.reload()}}>reset</button>
-        <Link to="/">voltar</Link>
+        <div className='containerReset'>
+          <button onClick={()=>{window.location.reload()}}>Recomeçar</button> 
+          <button onClick={zerarPlacar}>zerar placar</button>
+        </div>
       </div>
-      <div>player 2: {pontosPlayer2}</div>
+      <div>
+        <h1>Jogador o : {pontosPlayer2} pts</h1>
+      </div>
     </body>
     </>
 
