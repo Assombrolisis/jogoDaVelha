@@ -45,6 +45,19 @@ button{
     color: #000;
     transition: 0.25s linear;
     }
+.players{
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    align-items: center;
+    padding: 1.5rem;
+}
+.players p{
+    font-size: 2rem;
+}
+.players input{
+    padding-left: 1rem;
+    background-color: #5c57f2;
+}
 
 @media (max-width: 2560px){
     #btn_jogar{

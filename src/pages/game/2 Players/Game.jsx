@@ -142,6 +142,9 @@ useEffect(()=>{
 
         <div className='pontuacao'>
           <h2>Jogador <span id='playerX'>X</span>:</h2>
+
+          <h2>{localStorage.getItem("player1")}</h2>
+
           <span className='pontos'>{pontosPlayer1} <h2>pts</h2></span> 
         </div>
 
@@ -163,6 +166,9 @@ useEffect(()=>{
 
         <div className='pontuacao'>
           <h2>Jogador <span id='playerO'>O</span>:</h2>
+
+          <h2>{localStorage.getItem("player2")}</h2>
+
           <span className="pontos">{pontosPlayer2}<h2>pts</h2></span>
         </div>
 
