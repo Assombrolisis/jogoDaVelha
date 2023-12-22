@@ -134,6 +134,8 @@ h3{
 }
 #zerar{
   border: 1px solid white;
+  padding: 5px;
+  font-size: 1.2rem;
 }
 .pontuacao{
   margin: 5% 0;
@@ -149,6 +151,7 @@ h3{
 }
 .resultado{
   font-size: 3rem;
+  text-align: center;
   color: rgb(255, 197, 89);
   -webkit-text-stroke: 1px #000;
   text-shadow: black 0.1em 0.1em 0.2em;
@@ -161,6 +164,7 @@ h3{
 }
 .containerRodada > span{
   font-size: 2.5rem;
+  text-align: center;
   color: whitesmoke;
   -webkit-text-stroke: 1px #000;
   text-shadow: black 0.1em 0.1em 0.2em;
@@ -205,10 +209,7 @@ h3{
   .containerVoltar svg, .containerReset svg, #zerar{
     display: none;
   }
-  header{
-    width: 50%;
-  }
-  .outerContainer{
+  header, .outerContainer{
     width: 60%;
   }
   .game_button{
@@ -222,7 +223,7 @@ h3{
     display: none;
   }
 }
-@media (max-width: 1440px){
+@media (max-width: 1980px){
   header, .outerContainer{
     width: 100%;
   }
@@ -267,6 +268,47 @@ h3{
   }
   .containerVoltar svg, .containerReset svg, #zerar{
     display: inline-block;
+  }
+  .containerVoltar svg, .containerReset svg{
     font-size: 3rem;
+  }
+  .containerReset > button, #voltar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 60px;
+    height: 60px;
+  }
+  #voltar svg{
+    margin-left: 5px;
+  }
+  .containerRodada > span{
+    font-size: 2rem;
+  }
+  .boxX, .boxO{
+    font-size: 2rem;
+    width: 95px;
+  }
+  .resultado{
+    font-size: 2.5rem;
+    width: 33%;
+  }
+  .containerRodada{
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 320px){
+  .game_button{
+    width: 9rem;
+    height: 9rem;
+  }
+  .boxX, .boxO {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 50px; 
   }
 }

@@ -125,9 +125,9 @@ useEffect(()=>{
           <div className='containerRodada'>
             <span>Vez do jogador:</span> 
             <div className='rodada'>
-              <div className={`boxX ${player!=="X" && "inativo"}`}>X<span className='placarSuperior' > - {pontosPlayer1}</span></div>
+              <div className={`boxX ${player!=="X" && "inativo"}`}>X <span className='placarSuperior' > - {pontosPlayer1}</span></div>
               <span className='divisionLine'>|</span>
-              <div className={`boxO ${player==="X" && "inativo"}`}>O<span className='placarSuperior'> - {pontosPlayer2}</span></div>
+              <div className={`boxO ${player==="X" && "inativo"}`}>O <span className='placarSuperior'> - {pontosPlayer2}</span></div>
               {/* {player} */}
             </div>
           </div>}
