@@ -3,8 +3,8 @@ import './Home.css'
 
 function Home(){
     const navegate = useNavigate()
-    localStorage.setItem("x",0)
-    localStorage.setItem("o",0)
+    localStorage.setItem("X",0)
+    localStorage.setItem("O",0)
 
     return(
         <>
