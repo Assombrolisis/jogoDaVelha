@@ -9,7 +9,7 @@ function Home(){
     return(
         <>
         <body id='bodyHome'>
-            <picture>
+            <picture id='picture_home'>
                 <img src="src\img\logo.png" alt="Logo" />
             </picture>
             <button id="btn_jogar" onClick={()=>{navegate('/game')}}>JOGAR</button>
