@@ -1,18 +1,4 @@
-*{
-  margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-ol, ul {
-	list-style: none;
-}
-a{
-  color: black;
-  text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -23,15 +9,56 @@ a{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root{
+  --fonte-padrao: 'Open Sans', sans-serif;
+  --azul-escuro: #024053;
+  --azul-claro: #c3d0fd;
+  --cinza: #f0f0f0;
+  --cor-primaria: #3BC90C; /*(verde-médio)*/ 
+  --cor-secundária: #56E22F; /*(verde-claro)*/
+  --cortexto: #032100; /*(verde-escuro)*/
+  --cor-destaque: #000000; /*(preto)*/
+}
 
-button {
-  border-radius: 8px;
-  background-color: gray;
-  border: 1px solid transparent;
+*{
+  margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body{
+  font-family: var(--fonte-padrao);
+  font-weight: 800;
+}
+ol, ul {
+	list-style: none;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+button{
   padding: 0.6em 1.2em;
-  font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
   cursor: pointer;
-
+}
+#btn_jogar{
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 100px;
+  color: white;
+  font-weight: 800;
+  background-color: #000;
+  border: 2.5px solid #000;
+  padding: 0.6em 1.2em;
+  font-size: 4rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+#btn_jogar:hover{
+  font-weight: 800;
+  background-color: var(--cinza);
+  color: #000;
+  transition: 0.25s linear;
 }

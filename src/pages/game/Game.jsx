@@ -70,32 +70,32 @@ useEffect(()=>{
     <body id='bodyGame'>
       
       <div>
-        <h1>Jogador x : {pontosPlayer1} pts</h1>
+        <h1>Jogador x : <span className="pontos">{pontosPlayer1}</span> pts</h1>
       </div>
       <div className='containerGame'>
-      <button onClick={()=>{navegate('/')}}>voltar</button>
+      <button className="opcao" onClick={()=>{navegate('/')}}>Voltar</button>
 
         {resultado?
-        <h1>{resultado}</h1>:
-        <h1>Vez do jogador {player}</h1>}
+        <h3>{resultado}</h3>:
+        <h2>Vez do jogador {player}</h2>}
         <div className='game'>
-          <button onClick={(e)=>{click(setValorCel1,valorCel1)}}>{valorCel1}</button>
-          <button onClick={(e)=>{click(setValorCel2,valorCel2)}}>{valorCel2}</button>
-          <button onClick={(e)=>{click(setValorCel3,valorCel3)}}>{valorCel3}</button>
-          <button onClick={(e)=>{click(setValorCel4,valorCel4)}}>{valorCel4}</button>
-          <button onClick={(e)=>{click(setValorCel5,valorCel5)}}>{valorCel5}</button>
-          <button onClick={(e)=>{click(setValorCel6,valorCel6)}}>{valorCel6}</button>
-          <button onClick={(e)=>{click(setValorCel7,valorCel7)}}>{valorCel7}</button>
-          <button onClick={(e)=>{click(setValorCel8,valorCel8)}}>{valorCel8}</button>
-          <button onClick={(e)=>{click(setValorCel9,valorCel9)}}>{valorCel9}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel1,valorCel1)}}>{valorCel1}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel2,valorCel2)}}>{valorCel2}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel3,valorCel3)}}>{valorCel3}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel4,valorCel4)}}>{valorCel4}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel5,valorCel5)}}>{valorCel5}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel6,valorCel6)}}>{valorCel6}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel7,valorCel7)}}>{valorCel7}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel8,valorCel8)}}>{valorCel8}</button>
+          <button className="game_button" onClick={(e)=>{click(setValorCel9,valorCel9)}}>{valorCel9}</button>
         </div> 
         <div className='containerReset'>
-          <button onClick={()=>{window.location.reload()}}>Recomeçar</button> 
-          <button onClick={zerarPlacar}>zerar placar</button>
+          <button className="opcao" onClick={()=>{window.location.reload()}}>Recomeçar</button> 
+          <button className="opcao" onClick={zerarPlacar}>Zerar placar</button>
         </div>
       </div>
       <div>
-        <h1>Jogador o : {pontosPlayer2} pts</h1>
+        <h1>Jogador o : <span className="pontos">{pontosPlayer2}</span> pts</h1>
       </div>
     </body>
     </>
