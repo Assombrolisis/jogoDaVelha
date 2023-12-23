@@ -8,7 +8,7 @@ function Game() {
   const pontosPlayer1 = parseInt(localStorage.getItem("X"))
   const pontosPlayer2 = parseInt(localStorage.getItem("O"))
   
-  const[player, setPlayer] = useState("X")
+  const[player, setPlayer] = useState(localStorage.getItem("player"))
 
   const[valorCel1, setValorCel1] = useState("")
   const[valorCel2, setValorCel2] = useState("")
@@ -31,7 +31,7 @@ function Game() {
   const[ganhou9, setGanhou9] = useState("")
 
   const[vitoria, setVitoria] = useState(false)
-  
+
   const[resultado, setResultado]=useState("")
 
   const click = (setValorCel, valorCel)=>{
