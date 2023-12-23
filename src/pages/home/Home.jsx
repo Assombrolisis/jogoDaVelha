@@ -1,20 +1,63 @@
-import { Link, useNavigate } from 'react-router-dom'
-import './Home.css'
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import "./Home.css";
 
-function Home(){
-    const navegate = useNavigate()
-    localStorage.setItem("X",0)
-    localStorage.setItem("O",0)
+function Home() {
+  const navegate = useNavigate();
+  localStorage.setItem("X", 0);
+  localStorage.setItem("O", 0);
 
-    return(
-        <>
-        <body id='bodyHome'>
-            <picture id='picture_home'>
-                <img src="src\img\logo.png" alt="Logo" />
-            </picture>
-            <button id="btn_jogar" onClick={()=>{navegate('/game')}}>JOGAR</button>
-        </body>
-        </>
-    )
+  const [player1, setPlayer1] = useState("Player X");
+  const [player2, setPlayer2] = useState("Player O");
+
+  const handleInputChange1 = (e) => {
+    setPlayer1(e.target.value);
+    localStorage.setItem("player1", player1);
+  };
+  const handleInputChange2 = (e) => {
+    setPlayer2(e.target.value);
+    localStorage.setItem("player2", player2);
+  };
+
+  return (
+    <>
+      <body id="bodyHome">
+        <picture id="picture_home">
+          <img src="src\img\logo.png" alt="Logo" />
+        </picture>
+        <div className="players">
+          <p>
+            Player 1:
+            <input
+              type="text"
+              placeholder="Player X"
+              value={player1}
+              onChange={handleInputChange1}
+            />
+          </p>
+          <p>
+            Player 2:
+            <input
+              type="text"
+              placeholder="Player O"
+              value={player2}
+              onChange={handleInputChange2}
+            />
+          </p>
+        </div>
+
+        <button
+          id="btn_jogar"
+          onClick={() => {
+            localStorage.setItem("player1", player1);
+            localStorage.setItem("player2", player2);
+            navegate("/gameOptions");
+          }}
+        >
+          JOGAR
+        </button>
+      </body>
+    </>
+  );
 }
-export default Home
+export default Home;

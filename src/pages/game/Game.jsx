@@ -8,7 +8,7 @@ function Game() {
   const pontosPlayer1 = parseInt(localStorage.getItem("X"))
   const pontosPlayer2 = parseInt(localStorage.getItem("O"))
   
-  const[player, setPlayer] = useState("X")
+  const[player, setPlayer] = useState(localStorage.getItem("player"))
 
   const[valorCel1, setValorCel1] = useState("")
   const[valorCel2, setValorCel2] = useState("")
@@ -31,7 +31,7 @@ function Game() {
   const[ganhou9, setGanhou9] = useState("")
 
   const[vitoria, setVitoria] = useState(false)
-  
+
   const[resultado, setResultado]=useState("")
 
   const click = (setValorCel, valorCel)=>{
@@ -141,7 +141,7 @@ useEffect(()=>{
       <div className='outerContainer'>
 
         <div className='pontuacao'>
-          <h2>Jogador <span id='playerX'>X</span>:</h2>
+          <h2>{localStorage.getItem("player1")}</h2>
           <span className='pontos'>{pontosPlayer1} <h2>pts</h2></span> 
         </div>
 
@@ -162,7 +162,7 @@ useEffect(()=>{
         </div>
 
         <div className='pontuacao'>
-          <h2>Jogador <span id='playerO'>O</span>:</h2>
+          <h2>{localStorage.getItem("player2")}</h2>
           <span className="pontos">{pontosPlayer2}<h2>pts</h2></span>
         </div>
 
