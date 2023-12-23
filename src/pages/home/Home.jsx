@@ -26,8 +26,8 @@ function Home() {
           <img src="src\img\logo.png" alt="Logo" />
         </picture>
         <div className="players">
+          <h4>Escolha seu nome:</h4>
           <p>
-            Player 1:
             <input
               type="text"
               placeholder="Player X"
@@ -36,10 +36,9 @@ function Home() {
             />
           </p>
           <p>
-            Player 2:
             <input
               type="text"
-              placeholder="Player O"
+              placeholder="Player 0"
               value={player2}
               onChange={handleInputChange2}
             />
@@ -51,7 +50,7 @@ function Home() {
           onClick={() => {
             localStorage.setItem("player1", player1);
             localStorage.setItem("player2", player2);
-            navegate("/gameOptions");
+            navegate("/game");
           }}
         >
           JOGAR

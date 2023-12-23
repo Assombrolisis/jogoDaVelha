@@ -125,9 +125,9 @@ useEffect(()=>{
           <div className='containerRodada'>
             <span>Vez do jogador:</span> 
             <div className='rodada'>
-              <div className={`boxX ${player!=="X" && "inativo"}`}>X<span className='placarSuperior' > - {pontosPlayer1}</span></div>
+              <div className={`boxX ${player!=="X" && "inativo"}`}>X <span className='placarSuperior' > - {pontosPlayer1}</span></div>
               <span className='divisionLine'>|</span>
-              <div className={`boxO ${player==="X" && "inativo"}`}>O<span className='placarSuperior'> - {pontosPlayer2}</span></div>
+              <div className={`boxO ${player==="X" && "inativo"}`}>O <span className='placarSuperior'> - {pontosPlayer2}</span></div>
               {/* {player} */}
             </div>
           </div>}
@@ -141,7 +141,10 @@ useEffect(()=>{
       <div className='outerContainer'>
 
         <div className='pontuacao'>
+          <h2>Jogador <span id='playerX'>X</span>:</h2>
+
           <h2>{localStorage.getItem("player1")}</h2>
+
           <span className='pontos'>{pontosPlayer1} <h2>pts</h2></span> 
         </div>
 
@@ -162,7 +165,10 @@ useEffect(()=>{
         </div>
 
         <div className='pontuacao'>
+          <h2>Jogador <span id='playerO'>O</span>:</h2>
+
           <h2>{localStorage.getItem("player2")}</h2>
+
           <span className="pontos">{pontosPlayer2}<h2>pts</h2></span>
         </div>
 
