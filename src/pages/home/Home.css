@@ -49,14 +49,36 @@ button{
     display: grid;
     grid-template-columns: 1fr, 1fr;
     align-items: center;
-    padding: 1.5rem;
+    padding: 2rem;
+    box-shadow: 4px 4px 20px #000;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
 }
 .players p{
     font-size: 2rem;
 }
 .players input{
     padding-left: 1rem;
-    background-color: #5c57f2;
+    background-color: #d4d4d8;
+    box-shadow: 1px 1px 15px #aaa;
+    margin-top: 15px;
+    border-radius: 20px;
+    margin-left: 15%;
+    border: 1px solid black
+}
+
+.players p :hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+
+h4{
+  font-size: 4rem; 
+  color: white;
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: #000;
 }
 
 @media (max-width: 2560px){
@@ -77,3 +99,4 @@ button{
         width: 70%;
     }
 }
+
