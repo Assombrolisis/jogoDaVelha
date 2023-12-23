@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Game from "./pages/game/2 Players/Game"
-import Home from "./pages/Home/Home"
+import Game from "./pages/2 Players/Game"
+import SinglePlayer from "./pages/Single Player/SinglePlayer"
+import Home from "./pages/home/Home"
 
 
 function AppRoutes(){
@@ -9,6 +10,7 @@ function AppRoutes(){
        <BrowserRouter>
             <Routes>
                 <Route path="/game" element={<Game />}></Route>
+                <Route path="/SinglePlayer" element={<SinglePlayer />}></Route>
                 <Route path="/" element={<Home />}></Route>
             </Routes>
        </BrowserRouter>

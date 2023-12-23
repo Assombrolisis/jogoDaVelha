@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { json, useNavigate } from 'react-router-dom'
 import { MdArrowBackIos, MdRefresh } from "react-icons/md";
-import './Game.css'
+import './SinglePlayer.css'
 
-function Game() {
+function singlePlayer() {
   const navegate  = useNavigate()
   const pontosPlayer1 = parseInt(localStorage.getItem("X"))
   const pontosPlayer2 = parseInt(localStorage.getItem("O"))
@@ -39,7 +39,6 @@ function Game() {
     if(valorCel !==""){return null}
     setValorCel(player)
     setPlayer(player==="X"?"O":"X")
-    
   }
 
   const ganhou =(valorCel, pos)=>{
@@ -108,19 +107,56 @@ useEffect(()=>{
     window.location.reload()
   }
 
-  const [celulasVazias, setCelulasVazias] = useState([]) 
-  const addCelulaVazia = ()=>{
-    setCelulasVazias([...celulasVazias, {
-      id:celulasVazias.length,
-      name: celulaVazia 
-    }])
-  }
-  const celulaVazia = ()=>{
-    if(valorCel1 === ""){()=> addCelulaVazia()}
+  const quadro = Array(9).fill("")
+
+  const atualizarQuadro = (valor, index)=>{
+    quadro[index] = valor;
   }
 
-  if (player === "O" && resultado === ""){
-    if (valorCel1 === "")
+  const celulasVazias = quadro.map((celula, index)=>(celula === "" ? index : null));
+  const filtro = celulasVazias.map((celula)=>(celula !== null));
+  celulasVazias = filtro;
+
+  const jogadaBot = ()=>{
+    if (player === playerBot) {
+      if (celulasVazias.length > 0 && resultado === "") {
+        const celulaAleatoria = Math.floor(Math.random() * celulasVazias);
+        const celulaEscolhida = celulasVazias[celulaAleatoria];
+        if (celulaEscolhida === 0){
+          click(setValorCel1,valorCel1);
+        } else if (celulaEscolhida === 1){
+          click(setValorCel2,valorCel2);
+        } else if (celulaEscolhida === 2){
+          click(setValorCel3,valorCel3);
+        } else if (celulaEscolhida === 3){
+          click(setValorCel4,valorCel4);
+        } else if (celulaEscolhida === 4){
+          click(setValorCel5,valorCel5);
+        } else if (celulaEscolhida === 5){
+          click(setValorCel6,valorCel6);
+        } else if (celulaEscolhida === 6){
+          click(setValorCel7,valorCel7);
+        } else if (celulaEscolhida === 7){
+          click(setValorCel8,valorCel8);
+        } else if (celulaEscolhida === 8){
+          click(setValorCel9,valorCel9);
+        }
+      }
+    }
+  }
+
+  // const addCelulaVazia = ()=>{
+  //   setCelulasVazias([...celulasVazias, celulaVazia])
+  // }
+
+
+  // const celulaVazia = ()=>{
+  //   if(valorCel1 === ""){()=> celulaVazia = "valorCel1
+  //   json" addCelulaVazia()}
+  // }
+
+  // if (player === "O" && resultado === ""){
+  //   if (valorCel1 === "")
 
   return (
     <> 
@@ -161,15 +197,15 @@ useEffect(()=>{
         <div className='containerGame'>
 
           <div className='game'>
-            <button className={`game_button ${valorCel1} ${ganhou1}`} onClick={(e)=>{click(setValorCel1,valorCel1)}}>{valorCel1}</button>
-            <button className={`game_button ${valorCel2} ${ganhou2}`} onClick={(e)=>{click(setValorCel2,valorCel2)}}>{valorCel2}</button>
-            <button className={`game_button ${valorCel3} ${ganhou3}`} onClick={(e)=>{click(setValorCel3,valorCel3)}}>{valorCel3}</button>
-            <button className={`game_button ${valorCel4} ${ganhou4}`} onClick={(e)=>{click(setValorCel4,valorCel4)}}>{valorCel4}</button>
-            <button className={`game_button ${valorCel5} ${ganhou5}`} onClick={(e)=>{click(setValorCel5,valorCel5)}}>{valorCel5}</button>
-            <button className={`game_button ${valorCel6} ${ganhou6}`} onClick={(e)=>{click(setValorCel6,valorCel6)}}>{valorCel6}</button>
-            <button className={`game_button ${valorCel7} ${ganhou7}`} onClick={(e)=>{click(setValorCel7,valorCel7)}}>{valorCel7}</button>
-            <button className={`game_button ${valorCel8} ${ganhou8}`} onClick={(e)=>{click(setValorCel8,valorCel8)}}>{valorCel8}</button>
-            <button className={`game_button ${valorCel9} ${ganhou9}`} onClick={(e)=>{click(setValorCel9,valorCel9)}}>{valorCel9}</button>
+            <button className={`game_button ${valorCel1} ${ganhou1}`} onClick={(e)=>{click(setValorCel1,valorCel1); atualizarQuadro(valorCel1, 0);}}>{valorCel1}</button>
+            <button className={`game_button ${valorCel2} ${ganhou2}`} onClick={(e)=>{click(setValorCel2,valorCel2); atualizarQuadro(valorCel2, 1);}}>{valorCel2}</button>
+            <button className={`game_button ${valorCel3} ${ganhou3}`} onClick={(e)=>{click(setValorCel3,valorCel3); atualizarQuadro(valorCel3, 2);}}>{valorCel3}</button>
+            <button className={`game_button ${valorCel4} ${ganhou4}`} onClick={(e)=>{click(setValorCel4,valorCel4); atualizarQuadro(valorCel4, 3);}}>{valorCel4}</button>
+            <button className={`game_button ${valorCel5} ${ganhou5}`} onClick={(e)=>{click(setValorCel5,valorCel5); atualizarQuadro(valorCel5, 4);}}>{valorCel5}</button>
+            <button className={`game_button ${valorCel6} ${ganhou6}`} onClick={(e)=>{click(setValorCel6,valorCel6); atualizarQuadro(valorCel6, 5);}}>{valorCel6}</button>
+            <button className={`game_button ${valorCel7} ${ganhou7}`} onClick={(e)=>{click(setValorCel7,valorCel7); atualizarQuadro(valorCel7, 6);}}>{valorCel7}</button>
+            <button className={`game_button ${valorCel8} ${ganhou8}`} onClick={(e)=>{click(setValorCel8,valorCel8); atualizarQuadro(valorCel9, 7);}}>{valorCel8}</button>
+            <button className={`game_button ${valorCel9} ${ganhou9}`} onClick={(e)=>{click(setValorCel9,valorCel9); atualizarQuadro(valorCel9, 8);}}>{valorCel9}</button>
           </div>
           
         </div>
@@ -180,10 +216,17 @@ useEffect(()=>{
         </div>
 
       </div>
+      <ul>
+        {
+          celulasVazias.map((item)=>(
+            <li key={item.id}>{item}</li>
+          ))
+        }
+      </ul>
     </body>
     </>
 
   )
 }
 
-export default Game
+export default singlePlayer
