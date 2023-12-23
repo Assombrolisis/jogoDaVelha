@@ -7,7 +7,7 @@ O Jogo da velha tem como objetivo ser um jogo divertido para jogar com amigos.
 
 ### Requisitos
 
-- NodeJs(versao LTS) 
+- NodeJs(versão LTS) 
 
 ### Execução
 
