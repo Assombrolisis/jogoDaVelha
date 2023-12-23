@@ -44,28 +44,31 @@ function Home() {
             />
           </p>
         </div>
+        <div className="modos">
+          <button
+            id="btn_jogar"
+            className="multiplayer"
+            onClick={() => {
+              localStorage.setItem("player1", player1);
+              localStorage.setItem("player2", player2);
+              navegate("/gameOptions");
+            }}
+          >
+            2 jogadores
+          </button>
 
-        <button
-          id="btn_jogar_mp" className="multiplayer"
-          onClick={() => {
-            localStorage.setItem("player1", player1);
-            localStorage.setItem("player2", player2);
-            navegate("/gameOptions");
-          }}
-        >
-          2 jogadores
-        </button>
-
-        <button
-          id="btn_jogar_sp" className="singleplayer"
-          onClick={() => {
-            localStorage.setItem("player1", player1);
-            localStorage.setItem("player2", player2);
-            navegate("/singlePlayer");
-          }}
-        >
-          1 jogador
-        </button>
+          <button
+            id="btn_jogar"
+            className="singleplayer"
+            onClick={() => {
+              localStorage.setItem("player1", player1);
+              localStorage.setItem("player2", "BOT");
+              navegate("/SinglePlayer");
+            }}
+          >
+            1 jogador
+          </button>
+        </div>
       </body>
     </>
   );

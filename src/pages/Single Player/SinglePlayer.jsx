@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { json, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 import { MdArrowBackIos, MdRefresh } from "react-icons/md";
 import './SinglePlayer.css'
 
-function singlePlayer() {
+function SinglePlayer() {
   const navegate  = useNavigate()
   const pontosPlayer1 = parseInt(localStorage.getItem("X"))
   const pontosPlayer2 = parseInt(localStorage.getItem("O"))
@@ -229,4 +229,4 @@ useEffect(()=>{
   )
 }
 
-export default singlePlayer
+export default SinglePlayer;
