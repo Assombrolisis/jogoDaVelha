@@ -81,26 +81,6 @@ function SinglePlayer() {
     localStorage.setItem(valorCel,pontosAtuais+1)
 
   }
-
-
-useEffect(()=>{
-  valorCel1 == valorCel2 && valorCel2 == valorCel3 && valorCel3 !="" ?ganhou(valorCel1, 1): //vitoria linha 1
-  valorCel4 == valorCel5 && valorCel5 == valorCel6 && valorCel6 !="" ?ganhou(valorCel4, 2): //vitoria linha 2
-  valorCel7 == valorCel8 && valorCel8 == valorCel9 && valorCel9 !="" ?ganhou(valorCel7, 3): //vitoria linha 3
-
-  valorCel1 == valorCel4 && valorCel4 == valorCel7 && valorCel7 !="" ?ganhou(valorCel1, 4): //vitoria coluna 1
-  valorCel2 == valorCel5 && valorCel5 == valorCel8 && valorCel8 !="" ?ganhou(valorCel2, 5): //vitoria coluna 2
-  valorCel3 == valorCel6 && valorCel6 == valorCel9 && valorCel9 !="" ?ganhou(valorCel3, 6): //vitoria coluna 3
-
-  valorCel3 == valorCel5 && valorCel5 == valorCel7 && valorCel7 !="" ?ganhou(valorCel3, 7): //vitoria diagonal secundaria
-  valorCel1 == valorCel5 && valorCel5 == valorCel9 && valorCel9 !="" ?ganhou(valorCel1, 8): //vitoria diagonal principal
-
-
-  valorCel1 !="" && valorCel2 !="" && valorCel3 !="" &&
-  valorCel4 !="" && valorCel5 !="" && valorCel6 !="" && 
-  valorCel7 !="" && valorCel8 !="" && valorCel9 !="" ? setResultado("Empate"):{}
-},[valorCel1, valorCel2, valorCel3, valorCel4, valorCel5, valorCel6, valorCel7, valorCel8, valorCel9])
-
   const zerarPlacar = ()=>{
     localStorage.setItem("X",0)
     localStorage.setItem("O",0)
@@ -113,12 +93,10 @@ useEffect(()=>{
     quadro[index] = valor;
   }
 
-  const celulasVazias = quadro.map((celula, index)=>(celula === "" ? index : null));
-  const filtro = celulasVazias.map((celula)=>(celula !== null));
-  celulasVazias = filtro;
+  const celulasVazias = quadro.map((celula, index)=>(celula === "" ? index : null)).filter((celula)=>(celula !== null));
 
   const jogadaBot = ()=>{
-    if (player === playerBot) {
+    if (player === "O") {
       if (celulasVazias.length > 0 && resultado === "") {
         const celulaAleatoria = Math.floor(Math.random() * celulasVazias);
         const celulaEscolhida = celulasVazias[celulaAleatoria];
@@ -144,6 +122,25 @@ useEffect(()=>{
       }
     }
   }
+
+useEffect(()=>{
+  jogadaBot;
+  valorCel1 == valorCel2 && valorCel2 == valorCel3 && valorCel3 !="" ?ganhou(valorCel1, 1): //vitoria linha 1
+  valorCel4 == valorCel5 && valorCel5 == valorCel6 && valorCel6 !="" ?ganhou(valorCel4, 2): //vitoria linha 2
+  valorCel7 == valorCel8 && valorCel8 == valorCel9 && valorCel9 !="" ?ganhou(valorCel7, 3): //vitoria linha 3
+
+  valorCel1 == valorCel4 && valorCel4 == valorCel7 && valorCel7 !="" ?ganhou(valorCel1, 4): //vitoria coluna 1
+  valorCel2 == valorCel5 && valorCel5 == valorCel8 && valorCel8 !="" ?ganhou(valorCel2, 5): //vitoria coluna 2
+  valorCel3 == valorCel6 && valorCel6 == valorCel9 && valorCel9 !="" ?ganhou(valorCel3, 6): //vitoria coluna 3
+
+  valorCel3 == valorCel5 && valorCel5 == valorCel7 && valorCel7 !="" ?ganhou(valorCel3, 7): //vitoria diagonal secundaria
+  valorCel1 == valorCel5 && valorCel5 == valorCel9 && valorCel9 !="" ?ganhou(valorCel1, 8): //vitoria diagonal principal
+
+
+  valorCel1 !="" && valorCel2 !="" && valorCel3 !="" &&
+  valorCel4 !="" && valorCel5 !="" && valorCel6 !="" && 
+  valorCel7 !="" && valorCel8 !="" && valorCel9 !="" ? setResultado("Empate"):{}
+},[valorCel1, valorCel2, valorCel3, valorCel4, valorCel5, valorCel6, valorCel7, valorCel8, valorCel9])
 
   // const addCelulaVazia = ()=>{
   //   setCelulasVazias([...celulasVazias, celulaVazia])
